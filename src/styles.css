@@ -6,3 +6,7 @@
 .pointer{
     cursor: pointer;
 }
+
+li.active a.nav-link.text-white{
+    color: black !important;
+}
