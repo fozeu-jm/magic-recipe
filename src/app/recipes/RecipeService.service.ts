@@ -2,12 +2,11 @@ import { Recipe } from './recipe.model';
 import { EventEmitter, Injectable } from '@angular/core';
 import { Ingredient } from '../shared/ingredient.model';
 import { ShoppingListService } from '../shopping-list/ShoppingListService.service';
+import { Subject } from 'rxjs';
 
 //decorator that makes it possible to inject a service into this service
 @Injectable()
 export class RecipeService{
-
-    recipeSelected = new EventEmitter<Recipe>();
 
     private recipes: Recipe[] = [
         new Recipe("Fried Chicken","Delicious chicken fries !", "https://www.seriouseats.com/2019/07/20190618-grilled-turkish-chicken-wings-vicky-wasik-13-1500x1125.jpg",
