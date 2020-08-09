@@ -1,1 +1,70 @@
-<p>recipe-edit works!</p>
+<div class="row">
+    <div class="col-sm-12">
+        <form [formGroup] = "recipeForm" (ngSubmit) ="onSubmit()">
+            <div class="row">
+                <div class="col-sm-12">
+                    <button [disabled]="!recipeForm.valid" class="btn btn-success mr-3">Save</button>
+                    <button class="btn btn-danger">Cancel</button>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input 
+                        formControlName="name"
+                        id="name" type="text" class="form-control">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <textarea formControlName="description" id="description" rows="6" type="text" class="form-control"></textarea>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label for="name">Image URL</label>
+                        <input formControlName="imagePath" type="url" class="form-control">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                   <img src="" alt="" class="img-responive">
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-sm-12" formArrayName="ingredients">
+                    <div class="row mb-4"
+                    [formGroupName] = "i"
+                     *ngFor="let ingredientctrl of getControls(); let i = index">
+                        <div class="col-sm-7">
+                            <input formControlName="name" placeholder="Ingredient Name" type="text" class="form-control">
+                        </div>
+                        <div class="col-sm-3">
+                            <input formControlName="amount" placeholder="amount" type="number" class="form-control">
+                        </div>
+                        <div class="col-sm-2">
+                           <button class="btn btn-danger">X</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <button type="button" (click) = "onAddIngredient()" class="btn btn-success"> Add Ingredient</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -8,12 +8,10 @@ export class ShoppingListService {
 
     shoppingItemSelected = new Subject<Number>();
 
-
     private ingredients: Ingredient[] = [
         new Ingredient("Apples", 5),
         new Ingredient("Tomatoes", 10)
     ];
-
 
     getIngredients() {
         return this.ingredients.slice();
@@ -24,17 +22,17 @@ export class ShoppingListService {
         this.ingredientsChanged.next(this.ingredients.slice());
     }
 
-    addIngredients(ingredients : Ingredient[]){
+    addIngredients(ingredients: Ingredient[]) {
         this.ingredients.push(...ingredients);
         this.ingredientsChanged.next(this.ingredients.slice());
     }
 
-    getItemByIndex(index:number){
+    getItemByIndex(index: number) {
         return this.ingredients[index];
     }
 
-    deleteItem(index:number){
-        this.ingredients.splice(index,1);
+    deleteItem(index: number) {
+        this.ingredients.splice(index, 1);
         this.ingredientsChanged.next(this.ingredients.slice());
         console.log(this.ingredients);
     }
