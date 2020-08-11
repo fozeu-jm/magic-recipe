@@ -1,5 +1,5 @@
 import { Recipe } from './recipe.model';
-import { EventEmitter, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Ingredient } from '../shared/ingredient.model';
 import { ShoppingListService } from '../shopping-list/ShoppingListService.service';
 import { Subject } from 'rxjs';
@@ -8,6 +8,7 @@ import { Subject } from 'rxjs';
 @Injectable()
 export class RecipeService {
 
+    recipesChanged = new Subject<Recipe[]>();
     private recipes: Recipe[] = [
         new Recipe("Fried Chicken", "Delicious chicken fries !", "https://www.seriouseats.com/2019/07/20190618-grilled-turkish-chicken-wings-vicky-wasik-13-1500x1125.jpg",
             [new Ingredient("Meat", 8), new Ingredient("French fries", 20)]),
@@ -27,10 +28,12 @@ export class RecipeService {
 
     addRecipe(recipe:Recipe) {
         this.recipes.push(recipe);
+        this.recipesChanged.next(this.recipes.slice());
     }
 
     updateRecipe(index:number,recipe: Recipe){
         this.recipes[index] = recipe;
+        this.recipesChanged.next(this.recipes.slice());
     }
 
     //What a short name !  XD
