@@ -17,6 +17,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.component';
 import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
 import { RecipeService } from './recipes/RecipeService.service';
+import { ShortenPipe } from './recipes/recipe-list/recipe-item/shorten.pipe';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { RecipeService } from './recipes/RecipeService.service';
     ActiveRecipeDirectiveDirective,
     RecipeStartComponent,
     RecipeEditComponent,
+    ShortenPipe
   ],
   imports: [
     BrowserModule,
