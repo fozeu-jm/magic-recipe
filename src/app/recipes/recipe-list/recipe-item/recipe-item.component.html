@@ -4,7 +4,7 @@ routerLinkActive="active"
 [routerLink] = "[index]">
     <div class="float-left">
         <h4 class="list-group-item-heading">{{recipe.name}}</h4>
-        <p class="list-group-item-text" >{{recipe.description | shorten}}</p>
+        <p class="list-group-item-text" >{{recipe.description | shorten:20}}</p>
     </div>
     <span class="float-right">
         <img src="{{recipe.imagePath}}" class="img-responsive" alt="{{recipe.name}}" style="max-height: 100px;">
