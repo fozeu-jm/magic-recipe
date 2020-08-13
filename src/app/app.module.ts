@@ -18,7 +18,7 @@ import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.compon
 import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
 import { RecipeService } from './recipes/RecipeService.service';
 import { ShortenPipe } from './recipes/recipe-list/recipe-item/shorten.pipe';
-
+import {HttpClientModule} from '@angular/common/http'
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +39,8 @@ import { ShortenPipe } from './recipes/recipe-list/recipe-item/shorten.pipe';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [ShoppingListService,RecipeService],
   bootstrap: [AppComponent]

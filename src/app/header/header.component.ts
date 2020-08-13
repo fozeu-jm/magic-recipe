@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DataStorageService } from '../shared/data-storage.service';
 
 
 @Component({
@@ -6,5 +7,14 @@ import { Component } from '@angular/core';
     templateUrl: "./header.component.html"
 })
 export class HeaderComponent{
-    collapsed = true;
+    
+    constructor(private dataService: DataStorageService){}
+
+    onSaveData(){
+        this.dataService.storeRecipe();
+    }
+
+    onFetch(){
+        this.dataService.fetchRecipes();
+    }
 }
