@@ -10,11 +10,7 @@ export class RecipeService {
 
     recipesChanged = new Subject<Recipe[]>();
     private recipes: Recipe[] = [
-        new Recipe("Fried Chicken", "Delicious chicken fries !", "https://www.seriouseats.com/2019/07/20190618-grilled-turkish-chicken-wings-vicky-wasik-13-1500x1125.jpg",
-            [new Ingredient("Meat", 8), new Ingredient("French fries", 20)]),
-        new Recipe("Double Cheese Burger", "The Double features two 100% pure steak meat", "https://pngimg.com/uploads/burger_sandwich/burger_sandwich_PNG4135.png", [
-            new Ingredient("Buns", 2), new Ingredient("Meat", 1)
-        ])
+       
     ];
 
     constructor(private shoppingListService: ShoppingListService) {
@@ -53,6 +49,6 @@ export class RecipeService {
 
     setRecipes(recipes:Recipe[]){
         this.recipes = recipes;
-        this.recipesChanged.next(this.recipes);
+        this.recipesChanged.next(this.recipes.slice());
     }
 }
