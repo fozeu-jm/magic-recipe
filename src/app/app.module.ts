@@ -20,6 +20,7 @@ import { RecipeService } from './recipes/RecipeService.service';
 import { ShortenPipe } from './recipes/recipe-list/recipe-item/shorten.pipe';
 import {HttpClientModule} from '@angular/common/http'
 import { AuthComponent } from './auth/auth.component';
+import { AuthService } from './auth/auth.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,7 +45,7 @@ import { AuthComponent } from './auth/auth.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [ShoppingListService,RecipeService],
+  providers: [ShoppingListService,RecipeService,AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
