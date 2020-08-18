@@ -5,7 +5,11 @@
 </div>
 <hr>
 <div class="row">
-    <div class="col-md-12">
+    <div class="col-sm-12" *ngIf="!isLoading">
         <app-recipe-item *ngFor="let single of recipes; let i = index" [recipe] = "single" [index]="i"></app-recipe-item>
+    </div>
+
+    <div class="col-sm-12 mx-auto" *ngIf="isLoading">
+        <app-loading-spinner></app-loading-spinner>
     </div>
 </div>

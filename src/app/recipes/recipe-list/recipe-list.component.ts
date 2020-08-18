@@ -12,6 +12,7 @@ import { Subscription } from 'rxjs';
 export class RecipeListComponent implements OnInit, OnDestroy {
   recipes: Recipe[];
   subscription: Subscription;
+  isLoading: boolean = false;
 
   constructor(private recipeService: RecipeService,private route : ActivatedRoute, private router: Router) { }
 
@@ -19,8 +20,15 @@ export class RecipeListComponent implements OnInit, OnDestroy {
     this.subscription = this.recipeService.recipesChanged.subscribe(
       (recipes:Recipe[])=>{
         this.recipes = recipes;
+        console.log(recipes);
     });
-    this.recipes = this.recipeService.getRecipes();
+    if(this.recipeService.getRecipes().length !== 0){
+      this.recipes = this.recipeService.getRecipes();
+    }
+
+    this.recipeService.isLoading.subscribe((state:boolean)=>{
+      this.isLoading = state;
+    });
   }
 
   onNewRecipe(){

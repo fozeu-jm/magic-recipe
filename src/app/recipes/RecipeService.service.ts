@@ -9,9 +9,8 @@ import { Subject } from 'rxjs';
 export class RecipeService {
 
     recipesChanged = new Subject<Recipe[]>();
-    private recipes: Recipe[] = [
-       
-    ];
+    private recipes: Recipe[] = [];
+    isLoading = new Subject<boolean>();
 
     constructor(private shoppingListService: ShoppingListService) {
 
@@ -22,12 +21,17 @@ export class RecipeService {
         return this.recipes.slice();
     }
 
-    addRecipe(recipe:Recipe) {
+    setIsLoading(state: boolean) {
+        this.isLoading.next(state);
+    }
+
+
+    addRecipe(recipe: Recipe) {
         this.recipes.push(recipe);
         this.recipesChanged.next(this.recipes.slice());
     }
 
-    updateRecipe(index:number,recipe: Recipe){
+    updateRecipe(index: number, recipe: Recipe) {
         this.recipes[index] = recipe;
         this.recipesChanged.next(this.recipes.slice());
         console.log(this.recipes);
@@ -42,12 +46,12 @@ export class RecipeService {
         return this.recipes[index];
     }
 
-    deleteRecipe(index: number){
+    deleteRecipe(index: number) {
         this.recipes.splice(index, 1);
         this.recipesChanged.next(this.recipes.slice());
     }
 
-    setRecipes(recipes:Recipe[]){
+    setRecipes(recipes: Recipe[]) {
         this.recipes = recipes;
         this.recipesChanged.next(this.recipes.slice());
     }
