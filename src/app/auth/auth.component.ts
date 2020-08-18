@@ -4,6 +4,7 @@ import { AuthService, AuthResponseData } from './auth.service';
 import { StringMap } from '@angular/compiler/src/compiler_facade_interface';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
+import { error } from 'protractor';
 
 @Component({
     selector: 'app-auth',
@@ -20,6 +21,10 @@ export class AuthComponent {
 
     onSwitchMode() {
         this.loginMode = !this.loginMode;
+    }
+
+    onCloseModal(){
+        this.error = null;
     }
 
     onSubmit(form: NgForm) {
