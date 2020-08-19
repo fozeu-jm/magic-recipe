@@ -15,7 +15,7 @@ export class RecipesComponent implements OnInit {
     if (this.recipeService.getRecipes().length === 0) {
       this.dataStorage.fetchRecipes().subscribe(() => {
       }, (error) => {
-        console.log(error);
+       // console.log(error);
       });
     }
   }

@@ -16,7 +16,7 @@ export class DataStorageService {
         this.http.put('https://recipe-book-7eb1b.firebaseio.com/recipes.json', recipes)
             .subscribe(
                 (response) => {
-                    console.log(response);
+                    
                 });
     }
 
