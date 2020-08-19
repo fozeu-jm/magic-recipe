@@ -7,7 +7,7 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 const routes : Routes = [
-    {path: "shopping-list", component: ShoppingListComponent }
+    {path: "", component: ShoppingListComponent }
 ];
 
 @NgModule({

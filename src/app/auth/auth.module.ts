@@ -6,7 +6,7 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 const routes: Routes = [
-    { path: 'auth', component: AuthComponent }
+    { path: '', component: AuthComponent }
 ]
 @NgModule({
     declarations: [AuthComponent],

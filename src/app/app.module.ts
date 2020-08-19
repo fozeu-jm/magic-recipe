@@ -21,9 +21,7 @@ import { AuthModule } from './auth/auth.module';
     AppRoutingModule,
     HttpClientModule,
     //Custom modules start
-    SharedModule,
-    ShoppingListModule,
-    AuthModule
+    SharedModule
   ],
   providers: [ShoppingListService, RecipeService, AuthService,
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true }],
