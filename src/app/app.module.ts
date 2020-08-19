@@ -8,7 +8,6 @@ import { RecipeService } from './recipes/RecipeService.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthService } from './auth/auth.service';
 import { AuthInterceptorService } from './auth/auth.interceptor.service';
-import { RecipesModule } from './recipes/recipe.module';
 import { SharedModule } from './shared/shared.module';
 import { ShoppingListModule } from './shopping-list/shopping-list.module';
 import { AuthModule } from './auth/auth.module';
@@ -22,7 +21,6 @@ import { AuthModule } from './auth/auth.module';
     AppRoutingModule,
     HttpClientModule,
     //Custom modules start
-    RecipesModule,
     SharedModule,
     ShoppingListModule,
     AuthModule
