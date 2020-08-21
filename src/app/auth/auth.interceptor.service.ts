@@ -7,7 +7,7 @@ import { take } from 'rxjs/operators';
 @Injectable()
 export class AuthInterceptorService implements HttpInterceptor {
     token: String;
-    constructor(private authService: AuthService) { }
+    constructor(private authService: AuthService ) { }
 
     intercept(req: HttpRequest<any>, next: HttpHandler) {
         let modRequest = req.clone();
